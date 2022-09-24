@@ -1,6 +1,10 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			people: [
+
+			],
+
 			demo: [
 				{
 					title: "FIRST",
@@ -19,10 +23,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			loadSomeData: async () => {
+				let resp= await fetch(process.env.API_URL+"people/")
+				let json= await resp.json()
+				let personajes= json.results
+				setStore({ people: personajes });
 			},
 			changeColor: (index, color) => {
 				//get the store

@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
-import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+import {Container, Row, Col,Navbar} from 'react-bootstrap';
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { Home } from "./views/home";
+import  Planets  from "./views/planets";
+import  Characters  from "./views/characters";
+
+
+import { NavbarMenu } from "./component/navbarMenu";
 import { Footer } from "./component/footer";
+import Personaje from "./component/personaje";
 
 //create your first component
 const Layout = () => {
@@ -20,26 +23,33 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
+					<Row>
+						<Col>
+							<Navbar />
+						</Col>
+					</Row>
+					
+					<Row>
+						<Col>
+							<Switch>
+								<Route exact path="/" component={Home}/>
+									
+								<Route exact path="/planets" component={Planets}/>
+
+								<Route exact path="/character/:id" component={Personaje}/>
+
+								<Route>
+									<h1>Not found!</h1>
+								</Route>
+							</Switch>
+						</Col>
+					</Row>
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
 	);
 };
+
 
 export default injectContext(Layout);
