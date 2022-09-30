@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import "../../styles/home.css";
 
-const Card = (props) => (
+
+const Planetas = (props)=>{
 
     <div className="p-2">
         <div className="card" style={{minWidth: "18rem"}}>
-            <img src="https://starwars-visualguide.com/assets/img/characters/${props.name.id}.jpg" className="card-img-top" alt="Imagen de Picsum"/>
+            <img src="https://picsum.photos/200" className="card-img-top" alt="Imagen de Picsum"/>
             <div className="card-body">
                 <h5 className="card-title">{props.name.name}</h5>
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -16,10 +17,9 @@ const Card = (props) => (
                         Learn more!
                     </span>
                 </Link>
-                
             </div>
         </div>
     </div>
-);
+}
 
-export default Card;
+export default Planetas;

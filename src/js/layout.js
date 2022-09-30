@@ -34,7 +34,7 @@ const Layout = () => {
 							<Switch>
 								<Route exact path="/" component={Home}/>
 									
-								<Route exact path="/planets" component={Planets}/>
+								<Route exact path="/planets/:id" component={Planets}/>
 
 								<Route exact path="/character/:id" component={Personaje}/>
 
