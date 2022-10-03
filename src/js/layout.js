@@ -12,6 +12,7 @@ import  Characters  from "./views/characters";
 import { NavbarMenu } from "./component/navbarMenu";
 import { Footer } from "./component/footer";
 import Personaje from "./component/personaje";
+import Detalleplaneta from "./component/detalleplaneta";
 
 //create your first component
 const Layout = () => {
@@ -34,7 +35,7 @@ const Layout = () => {
 							<Switch>
 								<Route exact path="/" component={Home}/>
 									
-								<Route exact path="/planets/:id" component={Planets}/>
+								<Route exact path="/planets/:id" component={Detalleplaneta}/>
 
 								<Route exact path="/character/:id" component={Personaje}/>
 

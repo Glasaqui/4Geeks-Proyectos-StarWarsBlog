@@ -1,10 +1,15 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			favorites:[
+
+			],
 			people: [
 
 			],
+			planets: [
 
+			],
 			demo: [
 				{
 					title: "FIRST",
@@ -28,6 +33,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let json= await resp.json()
 				let personajes= json.results
 				setStore({ people: personajes });
+			},
+			loadSomeData2: async () => {
+				let resp= await fetch(process.env.API_URL+"planets/")
+				let json= await resp.json()
+				let planetas= json.results
+				setStore({ planets: planetas });
+			},
+			addFavorite: async (item) => {
+				const store = getStore();
+				setStore({ favorites: [...store.favorites, item] });
+
 			},
 			changeColor: (index, color) => {
 				//get the store
