@@ -16,8 +16,8 @@ const Personaje = (props) => {
 
     return (
 
-        <div  class="card mb-3"  style={{maxWidth: "840px"}} >
-                
+        <div className='w-full h-screen flex flex-col text-center' >
+             <div  className="card mb-3 mx-auto"  style={{maxWidth: "540px"}} >
                 <hr className="my-4" />
                 <div className="row g-0">
                 <div className="col-md-4">
@@ -51,7 +51,7 @@ const Personaje = (props) => {
                     </span>
                 </Link>
             </div>
-
+        </div>
     
     )};
 
